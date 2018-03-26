@@ -41,7 +41,7 @@ The command definitions are all available at [http://redis.io/commands].
  
 ## Server Run Options
 
-#### As Python process
+#### As a Python script
 
 You can run the MiniRedis server as a python execution using the script `server.py`. Using Python 2.7 or higher.
 
@@ -55,7 +55,7 @@ This script accepts the follow arguments as optionals:
   - -h            show the help message for each argument
 
 
-#### As Docker container
+#### As a Docker container
 
 You can also run the MiniRedis server as a Docker container. 
 
