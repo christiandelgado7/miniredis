@@ -1,7 +1,7 @@
 Engineering Redis Challenge
 ==========================
 
-##Objective
+## Objective
 
 Redis is an in-memory NoSQL data store that supports operations or “commands” on data structures such as sets, lists and hashes. Your objective is to implement a service that supports a subset of the Redis command set. That is, you are to build a “mini redis”.
 
@@ -47,13 +47,13 @@ You can run the MiniRedis server as a python execution using the script `server.
 
 This script accepts the follow arguments as optionals: 
 
+  > python server.py [-p P] [--no-cmd | --no-rest]
+  
   - -p XXXX       select which port number will be used for the REST API
   - --no-cmd      don't open shell console
   - --no-rest     don't start HTTP Server for REST API
   - -h            show the help message for each argument
 
- 
-  > python server.py [-p P] [--no-cmd | --no-rest]
 
 #### As Docker container
 
