@@ -1,7 +1,7 @@
 __metaclass__ = type
 from cmd import Cmd
 
-from redis_classes import RedisMessage, RedisError
+from structures import RedisMessage, RedisError
 
 INVALID_ARGS = "wrong number of arguments for '{}' command"
 
@@ -83,8 +83,8 @@ class Console(Cmd, object):
         args = line.split()
         if len(args) == 2:
             return self.miniredis.set(args[0], args[1])
-        elif len(args) == 3:
-            return self.miniredis.set(args[0], args[1], args[2])
+        elif len(args) == 4 and str(args[2]).lower() == "ex":
+            return self.miniredis.set(args[0], args[1], args[3])
         else:
             return RedisError(INVALID_ARGS.format('SET'))
 

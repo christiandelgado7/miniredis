@@ -9,8 +9,8 @@ logging.getLogger('werkzeug').setLevel(logging.ERROR)
 
 
 class RestServer(object):
-    def __init__(self, miniredis, host='0.0.0.0', port=8080):
-        self.miniredis = miniredis
+    def __init__(self, cmd, host='0.0.0.0', port=8080):
+        self.cmd = cmd
         self.host = host
         self.port = port
         self.app = None
@@ -39,7 +39,7 @@ class RestServer(object):
         try:
             cmd = request.args.get('cmd')
             if cmd is not None and cmd != 'exit':
-                return str(self.miniredis.cmd.exec_cmd(cmd))
+                return str(self.cmd.exec_cmd(cmd))
             else:
                 request.status = 400
                 return "invalid 'cmd' param"

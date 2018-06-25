@@ -2,23 +2,23 @@ import logging
 import unittest
 from time import sleep
 
-from miniredis.server import MiniRedisServer
-from miniredis.redis_classes import *
+from miniredis.miniredis import MiniRedis
+from miniredis.structures import *
 
 log_format = "%(asctime)s %(funcName)20s %(levelname)-8s %(message)s"
 logging.basicConfig(level=logging.DEBUG, format=log_format)
 log = logging.getLogger(__name__)
 
 
-def multithread_worker(miniredist, key, th):
-    log.debug('thread {})  {}'.format(th, miniredist.incr(key)))
+def multithread_worker(miniredis, key, th):
+    log.debug('thread {})  {}'.format(th, miniredis.incr(key)))
     return
 
 
 class TestMiniRedis(unittest.TestCase):
     @classmethod
     def setUpClass(self):
-        self.miniredis = MiniRedisServer(cmd=False, rest=False)
+        self.miniredis = MiniRedis()
 
     def test_get_empty(self):
         key = 'empty'
